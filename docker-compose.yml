@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  gliner:
+    build: .
+    container_name: gliner-ner
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - /srv/data/models/gliner:/root/.cache/huggingface
