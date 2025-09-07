@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:2.2.2-cpu
+FROM pytorch/pytorch:2.3.0   # <-- atenție, fără -cpu
 
 WORKDIR /app
 
