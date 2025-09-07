@@ -1,9 +1,8 @@
-FROM python:3.11
+FROM pytorch/pytorch:2.2.2-cpu
 
 WORKDIR /app
 
-RUN pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu \
-    && pip install --no-cache-dir transformers gliner fastapi uvicorn[standard]
+RUN pip install --no-cache-dir transformers gliner fastapi uvicorn[standard]
 
 COPY app.py .
 
