@@ -7,8 +7,15 @@ services:
     restart: unless-stopped
     working_dir: /app
     volumes:
-      - ./app.py:/app/app.py
-      - /srv/data/models/gliner:/root/.cache/huggingface
+      - ./app.py:/app/app.py          # montează aplicația ta FastAPI
+      - /srv/data/models/gliner:/root/.cache/huggingface   # cache pentru model
     ports:
-      - "8500:8000"
-    command: sh -c "pip install --no-cache-dir transformers gliner fastapi uvicorn[standard] && uvicorn app:app --host 0.0.0.0 --port 8000"
+      - "8500:8000"                   # accesezi pe http://server:8500
+    environment:
+      - TRANSFORMERS_CACHE=/root/.cache/huggingface
+    command: >
+      sh -c "
+      pip install --no-cache-dir --upgrade pip &&
+      pip install --no-cache-dir transformers gliner fastapi uvicorn[standard] &&
+      uvicorn app:app --host 0.0.0.0 --port 8000
+      "
