@@ -1,9 +1,9 @@
-FROM python:3.11-slim
+FROM pytorch/pytorch:2.3.1-cpu
 
 WORKDIR /app
 
-# Install dependencies
-RUN pip install --no-cache-dir torch transformers gliner fastapi uvicorn[standard]
+# Install Python dependencies
+RUN pip install --no-cache-dir transformers gliner fastapi uvicorn[standard]
 
 # Copy the FastAPI app
 COPY app.py .
