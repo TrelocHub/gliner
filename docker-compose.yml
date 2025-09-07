@@ -3,5 +3,5 @@ services:
   gliner:
     image: gliner-app:latest # Numele imaginii construite de dumneavoastră
     ports:
-      - "8000:8000"
+      - "8500:8000"
     restart: unless-stopped
