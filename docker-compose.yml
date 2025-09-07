@@ -1,16 +1,7 @@
-version: "3.9"
+version: '3.8'
 services:
   gliner:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: gliner-ner
-    restart: unless-stopped
-    working_dir: /app
-    volumes:
-      - ./app.py:/app/app.py
-      - /srv/data/models/gliner:/root/.cache/huggingface
+    image: gliner-app:latest # Numele imaginii construite de dumneavoastră
     ports:
-      - "8500:8000"
-    environment:
-      - TRANSFORMERS_CACHE=/root/.cache/huggingface
+      - "8000:8000"
+    restart: unless-stopped
