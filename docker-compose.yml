@@ -1,6 +1,8 @@
+version: "3.9"
+
 services:
   gliner:
-    image: intel/​intel-optimized-pytorch:latest
+    image: intel/intel-optimized-pytorch:latest
     container_name: gliner-ner
     restart: unless-stopped
     working_dir: /app
